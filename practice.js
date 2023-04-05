@@ -1,34 +1,42 @@
 "use strict";
 
 
-for(let i = 0; i<3; i++) {
-     console.log(i);
-     for(let j = 0; j<3; j++) {
-          console.log(j);
-     }
-};
+function firstTask() {
+     const arr = [3, 5, 8, 16, 20, 23, 50];
+     let result = [];
+  for (let i=0; i<arr.length; i++) { 
+     result += arr[i] +','
+  }
+    
+     return console.log(result);
+ }
 
-let result ='';
-const length = 7;
+firstTask();
 
-for( let i =1; i<length; i++){
-     for( let j=0; j<i; j++){
-          result +='*';
-     }
-     result += '\n'
-}
-
-console.log(result)
-
-first: for( let i =1; i<3; i++){
-    console.log(`first level ${i}`); 
-     for( let j=0; j<3; j++){
-          console.log(`second level ${j}`); 
-          for( let k=0; k<3; k++){
-               if(k===2) break first;
-               console.log(`third level ${k}`); 
+/* function secondTask() {
+     // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+     const data = [5, 10, 'Shopping', 20, 'Homework'];
+     for(let i=0; i<data.length; i++) {
+          if (typeof(data[i])==='number') {
+               data[i]= data[i]*2
+          } else if (typeof(data[i]) ==='string') {
+               data[i]=`${data[i]} - done`;
           }
      }
-}
+  console.log(data);
+  return data
+ }
+ secondTask()
+ */
 
-console.log(result)
+ function thirdTask() {
+     // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+     const data = [5, 10, 'Shopping', 20, 'Homework'];
+     let result = [];
+
+     for(let i=0; i<data.length; i++) {
+          result += data[i];
+     }
+  return console.log(result)
+ }
+ thirdTask()
