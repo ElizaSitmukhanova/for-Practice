@@ -55,3 +55,28 @@ function getMathResult(num1, num2) {
      return res
 }
 console.log(getMathResult(2, 3));
+
+function calculateVolumeAndArea(num) {
+     if( num < 0  ||  typeof(num) !== "number" || !Number.isInteger(num)) {
+          return console.log('при вычислении проризошла ошибка')
+     } else {
+       let S = num*num*6;
+       let V = num*num*num;
+       return console.log(`'Объем куба: ${V}, площадь всей поверхности: ${S}`)
+}}
+
+calculateVolumeAndArea(5.1)
+
+function getCoupeNumber(place) {
+    if(place < 0 || !Number.isInteger(place)) {
+     return console.log('Ошибка. Проверьте правильность введенного номера места')}
+
+    if( place==0 || place > 36) {
+     return console.log('Таких мест в вагоне не существует')
+}
+
+    return console.log(Math.ceil(place / 4) ) // округление в большую сторону
+ 
+}
+
+getCoupeNumber(33)
