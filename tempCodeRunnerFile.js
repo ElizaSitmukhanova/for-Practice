@@ -22,10 +22,4 @@
  }
     
 
-console.log(fib(2))
-
-
-console.log('5')
-
-
-
+console.log(fib(2)) 
