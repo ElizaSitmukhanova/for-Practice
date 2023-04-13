@@ -1,24 +1,49 @@
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    }
+};
 
-function first () {
-    setTimeout(function() {
-        console.log(1);
+const student = {
+    name: 'egor',
+    age: 15,
+    sex: "m",
+    hobby: {
+       one: 'Music',
+       two: 'Book'
+    },
+    makeTest: function() {
+        console.log('Testik');
+    }
+};
+student.makeTest();
 
-    },500);
-}
+const { border, bg} = options.colors; // деструктизация
+console.log(border)
+const { one, two} = student.hobby;
+console.log(two)
 
-function second () {
-    console.log(2);
-}
+console.log(Object.keys(student).length);
+console.log(Object.keys(options).length);
 
-first();
-second();
 
-function learnJS (lang, callback) {
-    console.log(`я учу: ${lang}`);
-    callback();
-}
-function done (){
-    console.log('Я прошел этот урок')
-}
-learnJS ('JavaScript', done);
+/* console.log(options.name);
+console.log(options['colors']['border'])
+/* delete options.name;
+console.log(options)
+console.log(options.name); */
 
+for (let key in options) {
+    if (typeof(options[key]) === 'object') {
+        for (let i in options[key]) {
+            console.log(`Свойство ${i} имеет значение ${options[key][i]}`)
+        }
+    } else {
+        console.log(`Свойство ${key} имеет значение ${options[key]}`);
+    }
+    
+} */
