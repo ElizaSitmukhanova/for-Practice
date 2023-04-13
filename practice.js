@@ -1,48 +1,46 @@
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function () {
+        let str = '';
+        let lang = this.skills.languages;
 
-newArray[1] = 'ddd'
-console.log(newArray);
-console.log(oldArray);
+        str = `Мне ${this.age}  и я владею языками:  `;
 
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejounal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'ok'];  //spred 
-      console.log(internet);
+        lang.forEach(function (lg) {
+            str += `${lg.toUpperCase()} `;
+        })
 
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
-
-}
-
-const num = [2, 5, 7];
-log(...num);
-
-const aray = ['a', 'b'];
-const newArr = [...aray];
-newArr[0] = "b";
-
-console.log(aray); // [ 'a', 'b' ]
-
-console.log(newArr); //[ 'b', 'b' ] 
-
-const q = {
-    one: 1,
-    two: 2,
-    three: {
-        x: 4,
-        y: 5
+        return str;
     }
 };
 
-const newObj2 = {...q}; 
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
-/* newObj2.one = 26;
-console.log(newObj2);
-console.log(q); */
+function showExperience(plan) {
+    const {exp} = plan.skills;
 
-newObj2.three.x = 26; // поверхностная копия
-console.log(newObj2);
-console.log(q);
+    return console.log(exp);
+}
+
+showExperience(personalPlanPeter);
+
+
+function showProgrammingLangs(plan) {
+     let res = '';
+    for (let key in plan.skills.programmingLangs) {
+            res += `язык ${key} изучен на  ${plan.skills.programmingLangs[key]}\n`;
+    }
+        return console.log(res);       
+            }
+
+
+showProgrammingLangs(personalPlanPeter);
