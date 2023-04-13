@@ -1,27 +1,24 @@
 
-function fib(num) {
-   if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)) {
-       return "";
-   }
+function first () {
+    setTimeout(function() {
+        console.log(1);
 
-   let result = '';
-   let first = 0;
-   let second = 1;
-
-   for (let i = 0; i < num; i++) {
-       if (i + 1 === num) {
-           result += `${first}`;
-           // Без пробела в конце
-       } else {
-           result += `${first} `;
-       }
-
-       let third = first + second;
-       first = second;
-       second = third;
-   }
-
-   return result;
+    },500);
 }
 
-console.log(fib(5))
+function second () {
+    console.log(2);
+}
+
+first();
+second();
+
+function learnJS (lang, callback) {
+    console.log(`я учу: ${lang}`);
+    callback();
+}
+function done (){
+    console.log('Я прошел этот урок')
+}
+learnJS ('JavaScript', done);
+
