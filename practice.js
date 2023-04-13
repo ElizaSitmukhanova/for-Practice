@@ -1,49 +1,31 @@
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    }
-};
+const arr = [1, 6, 30, 4, 5];
 
-const student = {
-    name: 'egor',
-    age: 15,
-    sex: "m",
-    hobby: {
-       one: 'Music',
-       two: 'Book'
-    },
-    makeTest: function() {
-        console.log('Testik');
-    }
-};
-student.makeTest();
+arr.sort(compareNum);
+console.log(arr);
 
-const { border, bg} = options.colors; // деструктизация
-console.log(border)
-const { one, two} = student.hobby;
-console.log(two)
+function compareNum(a, b) {
+    return a-b
+}
+//arr[99] = 0;
+//console.log(arr.length);
+//console.log(arr)
+//arr.pop()
+//arr.push(15)
+//console.log(arr);
 
-console.log(Object.keys(student).length);
-console.log(Object.keys(options).length);
+/* arr.forEach(function(item, i, arr){
+    console.log(`${i}: ${item} inside array ${arr}`)
+});
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
 
-
-/* console.log(options.name);
-console.log(options['colors']['border'])
-/* delete options.name;
-console.log(options)
-console.log(options.name); */
-
-for (let key in options) {
-    if (typeof(options[key]) === 'object') {
-        for (let i in options[key]) {
-            console.log(`Свойство ${i} имеет значение ${options[key][i]}`)
-        }
-    } else {
-        console.log(`Свойство ${key} имеет значение ${options[key]}`);
-    }
-    
+for ( let value of arr) {
+    console.log(value)
 } */
+
+/* const str = prompt("", '');
+const products = str.split(', ');
+
+console.log(products.sort()) */
+/* console.log(products.join('!')); */
