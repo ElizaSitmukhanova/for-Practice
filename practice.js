@@ -1,31 +1,27 @@
- function fib(num) {
-    if (typeof(num) != 'number' || num<=0 || !Number.isInteger(num)) {
-        return ''
-    }
 
-    let result = '';
-    let first = 0;
-    let second = 1;
+function fib(num) {
+   if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)) {
+       return "";
+   }
 
-    for(let i=0; i<num; num++) {
-         if(num === i+1) {
-            result +=`${first}`;
-         } else {
-            result += `${first} `;
-         }
+   let result = '';
+   let first = 0;
+   let second = 1;
 
-         let third = first + second;
-         first = second;
-         second = third;
-    }
-    return result;
- }
-    
+   for (let i = 0; i < num; i++) {
+       if (i + 1 === num) {
+           result += `${first}`;
+           // Без пробела в конце
+       } else {
+           result += `${first} `;
+       }
 
-console.log(fib(2))
+       let third = first + second;
+       first = second;
+       second = third;
+   }
 
+   return result;
+}
 
-console.log('5')
-
-
-
+console.log(fib(5))
