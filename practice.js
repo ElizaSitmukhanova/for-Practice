@@ -1,37 +1,28 @@
-const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+/* const someString = 'This is some strange string';
 
-
-function showFamily(arr) {
-    let names = arr.slice().join(' ');
-    let str = '';
-    if (arr.length === 0) {
-        str = 'Семья пуста'
-    } else {
-        str = `Семья состоит из: ${names}`;
+function reverse(str) {
+    if (typeof (str) !== "string") {
+        return console.log('Error');
     }
-    return console.log(str)
+    let arr = str.split('').reverse().join('');
+    return console.log(arr);
 }
 
-showFamily(family);
-/* function showFamily(arr) {
+reverse(someString); */
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
     let str = '';
+    arr.length === 0 ? str = 'нет доступных валют' : str = 'Доступные валюты:\n';
 
-    arr.length === 0 ? str = 'Семья пуста' : str = 'Семья состоит из: ';
-
-    arr.forEach(member => {
-        str += `${member} `
-    });
-
-    return str;
-} */
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-
-function standardizeStrings(arr) {
-    
-    arr.forEach(element => {
-         console.log(element.toLowerCase())
-    });
-    
+    arr.forEach(function(element, index) {
+        if (missingCurr !== element) {
+            str+=`${element}\n`;
+        }
+    })
+  return console.log(str)
 }
 
-standardizeStrings(favoriteCities);
+   availableCurr([...baseCurrencies, ...additionalCurrencies], 'EUR');
