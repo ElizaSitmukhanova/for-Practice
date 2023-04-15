@@ -1,50 +1,46 @@
+let number = 5; debugger
 
-//1
-console.log(typeof(String(null)));
+function getNumber() {
+number= 8
+    console.log(number);    debugger
 
-//2
-console.log(typeof(null + ''));
+}
 
-const num = 5;
+number = 25;
+console.log(number)
+getNumber();debugger
 
-console.log('https://vk.com/catalog/' + num);
+function createCounter() {
+    let counter = 0;
 
-const fontSize = 26 + 'px';
-console.log(fontSize);
+    const myFunc = function(){ debugger
+        counter = counter + 1; debugger
+        return counter; debugger
+    }
+    return myFunc
+}debugger
+const increment = createCounter();debugger
+const c1 = increment();debugger
+const c2 = increment();debugger
+const c3 = increment();debugger
 
-// to number
+console.log(c1, c2, c3)
 
-//1
-console.log(typeof(Number('4')));
 
-//2
-console.log(typeof((+'4')));
+function makeCounter() {debugger
 
-//3
-console.log(parseInt('15px', 10)); //15
-
-let answer = +prompt('Hello', '');
-
- // to boolean
-
- //0, '', null , undefined, false, NaN;
-
- //1
- let switcher = null;
-
- if( switcher) {
-    console.log("Working...");
- }
-
- switcher = 1;
- if( switcher) {
-    console.log("Working...");
- }
-
- //2
- 
-console.log(typeof(Boolean('4')));
-
-//3
-console.log(typeof((!!'4')));
+    function counter() { debugger
+      return counter.count++; debugger
+    };
+  
+    counter.count = 0;debugger
+  
+    return counter;debugger
+  }
+  
+  let counter = makeCounter();debugger
+  
+  counter.count = 10;debugger
+  alert( counter() ); debugger
+console.log(0 || NaN || false || null)
 
