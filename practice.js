@@ -1,46 +1,57 @@
-let number = 5; debugger
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar', 
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
+        }
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
 
-function getNumber() {
-number= 8
-    console.log(number);    debugger
 
+function isOpen(prop) {
+    let answer = '';
+    prop ? answer = 'Закрыто' : answer = 'Открыто';
+
+    return answer;
 }
 
-number = 25;
-console.log(number)
-getNumber();debugger
+console.log(isOpen(restorantData.openNow))
 
-function createCounter() {
-    let counter = 0;
-
-    const myFunc = function(){ debugger
-        counter = counter + 1; debugger
-        return counter; debugger
+function isAverageLunchPriceTrue(fDish, sDish, average) { debugger
+let sum =  +fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1))
+console.log(sum);
+    if (sum < average) {debugger
+        return 'Цена ниже средней';debugger
+    } else {debugger
+        return 'Цена выше средней';debugger
     }
-    return myFunc
-}debugger
-const increment = createCounter();debugger
-const c1 = increment();debugger
-const c2 = increment();debugger
-const c3 = increment();debugger
+}
 
-console.log(c1, c2, c3)
+console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));debugger
 
+function transferWaitors(data) {
+    const copy = {...data};
 
-function makeCounter() {debugger
+    copy.waitors = [{name: 'Mike', age: 32}];
+    return copy;
+}
 
-    function counter() { debugger
-      return counter.count++; debugger
-    };
-  
-    counter.count = 0;debugger
-  
-    return counter;debugger
-  }
-  
-  let counter = makeCounter();debugger
-  
-  counter.count = 10;debugger
-  alert( counter() ); debugger
-console.log(0 || NaN || false || null)
-
+console.log(transferWaitors(restorantData));
+console.log(restorantData);
