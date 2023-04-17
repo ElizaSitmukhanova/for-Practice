@@ -1,23 +1,59 @@
-const button = document.getElementById('button');
+const box = document.getElementById('box'),
+    btns = document.getElementsByTagName('button'),
+    wrapper = document.querySelector(".wrapper"),
+    circles = document.getElementsByClassName('circle'),
+    hearts = wrapper.querySelectorAll('.heart'), //псевдомассив и есть метод forEach
+    oneHeart = wrapper.querySelector('.heart');
 
-console.log(button);
- 
-const div = document.getElementsByTagName('div') ;
+/* box.style.backgroundColor = 'blue';
+box.style.width= '500px'; */
+btns[1].style.borderRadius = '100%';
+//btns.style.backgroundColor = 'black'; //error
 
-console.log(div[1]);
+//чтобы назначить несколько
+box.style.cssText = 'background-color: black; width: 500px';
 
-const brother = document.getElementsByClassName('brother');
+/* for (let i = 0; i<hearts.length; i++) {
+    hearts[i].style.backgroundColor = 'blue';
 
-console.log(brother);
+} */
 
-const sister = document.querySelectorAll('.sister');
-sister.forEach(item=>{
-    console.log(item);
+hearts.forEach(item =>{
+item.style.backgroundColor = 'blue';
 });
 
-const me = document.querySelector(".itsMe"); //только один выходит 
-console.log(me);
- 
+const div =document.createElement('div');
+//const text = document.createTextNode('i am here');
 
-const btn = document.querySelector('button');
-console.log(btn);
+div.classList.add('black');
+
+//document.body.append(div);
+// document.querySelector(".wrapper").append(div);
+wrapper.append(div);
+
+// wrapper.prepend(div);
+
+// hearts[0].before(div);
+
+// hearts[0].after(div);
+
+ circles[0].remove() 
+
+// hearts[0].replaceWith(circles[0]); 
+
+//устаревшие методы, но которые стоит знать
+
+// wrapper.appendChild(div);
+
+// wrapper.insertBefore(div, hearts[1]);
+
+// wrapper.removeChild(hearts[1]); delete 
+//  wrapper.replaceChild(circles[0], hearts[0]);
+
+
+ div.innerHTML = '<h1> Hello World </h1>';
+
+// div.textContent= 'Hello';
+
+div.insertAdjacentHTML('afterend', "<h2> hi </h2>")
+
