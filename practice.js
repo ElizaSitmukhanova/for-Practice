@@ -1,46 +1,22 @@
+//console.log(document.body);
+// console.log(document.head);
+// console.log(document.documentElement);
+//  console.log(document.body.childNodes);
+//  console.log(document.body.firstElementChild);
+// console.log(document.body.firstChild);
+// console.log(document.body.lastChild);
 
-const btn = document.querySelector('button'),
-      overlay = document.querySelector('.overlay');
+// console.log(document.querySelector('#current').parentNode);
+// console.log(document.querySelector('#current').parentElement);
 
 
-/* btn.onclick= function() {
-   alert('djfisjfids')
-} */
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
 
-/* btn.addEventListener('click', (e) =>{
-    e.target.remove();
-}) */
 
-/* btn.addEventListener('click', () =>{
-    alert('second click');
-}) */
-/* let i = 0;
-const deleteElement = (e) =>{
-    console.log(e.target);
-    i++;
-    if(i==2) {
-        btn.removeEventListener('click', deleteElement);
+//  console.log(document.body.childNodes); получить элементы можно перебором for of
+for (let node of document.body.childNodes) {
+    if (node.nodeName === '#text') {
+        continue;
     }
-}; */
-
-const deleteElement = (e) =>{
-    console.log(e.currentTarget);
-   console.log(e.type);
-};
-/* btn.addEventListener('click', deleteElement);
-overlay.addEventListener('click', deleteElement); */
-
-const link = document.querySelector('a');
-
-link.addEventListener('click', (event)=> {
-    event.preventDefault();
-    console.log(event.target);
-
-})
-
-    //чтобы навесить несколько обработчтиков событии на кнопки все 
-    const btns = document.querySelectorAll('button');
-
-    btns.forEach((btn) =>{
-        btn.addEventListener('click', deleteElement, {once: true});
-    });
+    console.log(node);
+}
