@@ -1,59 +1,46 @@
-const box = document.getElementById('box'),
-    btns = document.getElementsByTagName('button'),
-    wrapper = document.querySelector(".wrapper"),
-    circles = document.getElementsByClassName('circle'),
-    hearts = wrapper.querySelectorAll('.heart'), //псевдомассив и есть метод forEach
-    oneHeart = wrapper.querySelector('.heart');
 
-/* box.style.backgroundColor = 'blue';
-box.style.width= '500px'; */
-btns[1].style.borderRadius = '100%';
-//btns.style.backgroundColor = 'black'; //error
+const btn = document.querySelector('button'),
+      overlay = document.querySelector('.overlay');
 
-//чтобы назначить несколько
-box.style.cssText = 'background-color: black; width: 500px';
 
-/* for (let i = 0; i<hearts.length; i++) {
-    hearts[i].style.backgroundColor = 'blue';
-
+/* btn.onclick= function() {
+   alert('djfisjfids')
 } */
 
-hearts.forEach(item =>{
-item.style.backgroundColor = 'blue';
-});
+/* btn.addEventListener('click', (e) =>{
+    e.target.remove();
+}) */
 
-const div =document.createElement('div');
-//const text = document.createTextNode('i am here');
+/* btn.addEventListener('click', () =>{
+    alert('second click');
+}) */
+/* let i = 0;
+const deleteElement = (e) =>{
+    console.log(e.target);
+    i++;
+    if(i==2) {
+        btn.removeEventListener('click', deleteElement);
+    }
+}; */
 
-div.classList.add('black');
+const deleteElement = (e) =>{
+    console.log(e.currentTarget);
+   console.log(e.type);
+};
+/* btn.addEventListener('click', deleteElement);
+overlay.addEventListener('click', deleteElement); */
 
-//document.body.append(div);
-// document.querySelector(".wrapper").append(div);
-wrapper.append(div);
+const link = document.querySelector('a');
 
-// wrapper.prepend(div);
+link.addEventListener('click', (event)=> {
+    event.preventDefault();
+    console.log(event.target);
 
-// hearts[0].before(div);
+})
 
-// hearts[0].after(div);
+    //чтобы навесить несколько обработчтиков событии на кнопки все 
+    const btns = document.querySelectorAll('button');
 
- circles[0].remove() 
-
-// hearts[0].replaceWith(circles[0]); 
-
-//устаревшие методы, но которые стоит знать
-
-// wrapper.appendChild(div);
-
-// wrapper.insertBefore(div, hearts[1]);
-
-// wrapper.removeChild(hearts[1]); delete 
-//  wrapper.replaceChild(circles[0], hearts[0]);
-
-
- div.innerHTML = '<h1> Hello World </h1>';
-
-// div.textContent= 'Hello';
-
-div.insertAdjacentHTML('afterend', "<h2> hi </h2>")
-
+    btns.forEach((btn) =>{
+        btn.addEventListener('click', deleteElement, {once: true});
+    });
