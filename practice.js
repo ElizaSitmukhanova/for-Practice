@@ -1,16 +1,18 @@
-function factorial(n) {
-    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
-        return 'Error';
-    } else if( n <= 0) {
-        return 1;
-    } else {
-        for (let i=1; i<=n; i++) {
-            let res = 1;
-            res *= n*factorial(n-1);
-return res;
-        }
-        
-    }
-}
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
 
-console.log(factorial(7));
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        console.log('hiiii');
+        console.log(e.argetTouches);
+    });
+    box.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        console.log(e.targetTouches[0].pageX);
+
+    });
+    box.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        console.log('end');
+    });
+});
