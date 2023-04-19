@@ -1,18 +1,15 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
+"use strict";
 
-    box.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        console.log('hiiii');
-        console.log(e.argetTouches);
-    });
-    box.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        console.log(e.targetTouches[0].pageX);
+const p = document.querySelectorAll('p');
 
-    });
-    box.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        console.log('end');
-    });
-});
+console.log(p);
+
+function loadScript(src) { //динамическая вставка
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
+}
+
+loadScript("test.js");
+loadScript('some.js');
