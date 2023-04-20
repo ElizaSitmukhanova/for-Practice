@@ -1,53 +1,35 @@
-"use strict";
 
-const btns = document.querySelectorAll('button'),
-    wrapper = document.querySelector('.btn-block');
+const btn = document.querySelector('.btn');
+let timerId,
+i = 0;
 
-/* console.log(btns[0].classList.length); //количество классов 2
-console.log(btns[0].classList.item(0)); // blue name of class
-console.log(btns[1].classList.length); // 0 классов
-console.log(btns[1].classList.add("red"));
-console.log(btns[0].classList.remove("blue"));
-console.log(btns[0].classList.toggle("blue"));
+function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
 
-if (btns[1].classList.contains('red')) {
-    console.log('red');
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
+        }
+    }
+}
+btn.addEventListener('click', myAnimation);
+
+/* 
+function logger () {
+    console.log('dfjfhsd');
+    if(i === 3){
+        clearInterval(timerId);
+    } 
+    i++;
 } */
 
- btns[0].addEventListener('click', () => {
-/* if (!btns[1].classList.contains('red')) {
-    btns[1].classList.add('red');
-} else {
-    btns[1].classList.remove('red');
-} */
-
-btns[1].classList.toggle('red');
-}); 
-
-/* wrapper.addEventListener('click', (event) => {
-    if(event.target && event.target.classList.contains('blue')) {
-        console.log('Hello');
-    }
-}) */
-
-/* wrapper.addEventListener('click', (event) => {
-    if(event.target && event.target.tagName == "BUTTON") {
-        console.log('Hello');
-    }
-}); */
-
-//перебором пропускает кнопки которыебыли добавлены динамическиб то есть не сработает на посл кнопку
-/* btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        console.log('Hello');
-    });
-}); */
-wrapper.addEventListener('click', (event) => {
-    if(event.target && event.target.matches('button.red')) {
-        console.log('Hello');
-    }
-});
-
-const btn = document.createElement('button');
-btn.classList.add('red');
-wrapper.append(btn);
+/* let id = setTimeout(function log(){
+    console.log('Hello');
+    id = setTimeout(log, 500);
+}, 500); */
