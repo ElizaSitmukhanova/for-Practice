@@ -1,45 +1,41 @@
-'use strict';
 
-/* const arr = [1, 2, 2, 3, 5, 8, 8, 10, 4, 3, 2];
+/* let user = {
+    name: 'Ivan'
+}; */
 
-const set = new Set(arr); // получение уникальных чисел
-console.log(set); */
+/* let map = new Map();
+map.set(user, 'data');
 
-const arr = ['Alex', 'Masha', "Alex", "Roi", 'Alex'];
+user = null;
+console.log(map.keys()); */
 
-const set = new Set(arr); 
-console.log(set); // to get set with unique elements
+/* let map = new WeakMap();
+map.set(user, 'data');
 
-function unique(arr) {
-    return Array.from(new Set(arr)); // to get Array 
+user = null;
+console.log(map.has(user)); //false
+console.log(map);  */
+/* const arr = [user];
+
+console.log(user);
+console.log(arr[0]); */  
+
+let cache = new WeakMap();
+
+function cacheUser(user) {
+    if(!cache.has(user)) {
+        cache.set(user, Date.now());
+    }
+    return cache.get(user);
 }
-console.log(unique(arr));
 
-/* set.add('Ivan');
-set.add('Masha');
-console.log(set); */
+let lena = {name: "Elena"};
+let Tima = {name: "Tima"};
 
-/* const newArr = [];
+cacheUser(lena);
+cacheUser(Tima);
 
-newArr.push(set.add('Ela'));
-console.log(newArr); */
+lena = null;
 
-/* set.delete(value);
-set.has(value);
-set.clear();
-set.size; */
-
-/* for (let value of set) {
-    console.log(value)
-} */
-
-/* set.forEach((value, valueAgaing, set) =>{
-console.log(value, valueAgaing);
-}); */
-
-/* console.log(set.values());
-console.log(set.keys());
-console.log(set.entries());
- */
-
- 
+console.log(cache.has(lena));
+console.log(cache.has(Tima));
