@@ -1,63 +1,45 @@
 'use strict';
 
-const user = {
-    name: 'Alex',
-    surname: 'Smith',
-    birthday: '20/12/1998',
-    showMyPublicData: function() {
-        console.log(`${this.name} ${this.surname}`);
-    }
-};
+/* const arr = [1, 2, 2, 3, 5, 8, 8, 10, 4, 3, 2];
 
-//console.log(typeof(Object.keys(user)[0]));
-// получаем карты из объекта
-const userMap = new Map(Object.entries(user)); 
+const set = new Set(arr); // получение уникальных чисел
+console.log(set); */
 
-// получаем объект из карты
-const newUserObj = Object.fromEntries(userMap);
-console.log(newUserObj);
+const arr = ['Alex', 'Masha', "Alex", "Roi", 'Alex'];
 
+const set = new Set(arr); 
+console.log(set); // to get set with unique elements
 
-const shops = [
-    {rise: 500},
-    {oil: 200},
-    {bread: 50},
-];
-const budget= [5000, 1500, 25000];
-
-const map = new Map([
-    [{paper: 400}, 8000]
-]);
-
-shops.forEach((shop, i) => {
-    map.set(shop, budget[i]);
-});
-
-/* map.set(shops[0], 5000);
-map.set(shops[1], 25000);
-map.set(shops[2], 35000); */
-console.log(map);
-/* console.log(map.get(shops[0]));
-console.log(map.has(shops[0])); */
-/* map.delete(key);
-map.clear();
-map.size;
-map.key() */
-/* const gooods = []; получить ключи массива
-for (let shop of map.keys()) {
-    gooods.push(Object.keys(shop)[0]);
+function unique(arr) {
+    return Array.from(new Set(arr)); // to get Array 
 }
+console.log(unique(arr));
 
-console.log(gooods); */
+/* set.add('Ivan');
+set.add('Masha');
+console.log(set); */
 
-/* for (let price of map.values()) { получить значения
-    console.log(price);
+/* const newArr = [];
+
+newArr.push(set.add('Ela'));
+console.log(newArr); */
+
+/* set.delete(value);
+set.has(value);
+set.clear();
+set.size; */
+
+/* for (let value of set) {
+    console.log(value)
 } */
-/* 
-for (let [shop, price] of map.entries()) { получить значения или ключи и вместе
-    console.log(price);
-} */
 
-/* map.forEach((value, key, map) => {
-    console.log(key, value);
+/* set.forEach((value, valueAgaing, set) =>{
+console.log(value, valueAgaing);
 }); */
+
+/* console.log(set.values());
+console.log(set.keys());
+console.log(set.entries());
+ */
+
+ 
