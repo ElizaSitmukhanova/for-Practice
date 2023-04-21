@@ -1,15 +1,23 @@
- let messages = [
-    {text: "Hello", from: 'Alex'},
-    {text: "aha", from: 'Tim'},
-    {text: "aloha", from: 'Kira'}
- ];
+const now = new Date('2021-06-21');
 
- let readMessages = new WeakSet();
+/* 
+console.log(now.setHours(50));
+console.log(now); */
 
- readMessages.add(messages[0]);
- //readMessages.add(messages[1]);
+/* console.log(now.getFullYear());
+console.log(now.getMonth());
+console.log(now.getDay());
+console.log(now.getHours());
+console.log(now.getUTCHours()); */
 
- readMessages.add(messages[0]);
-messages.shift();
- console.log(readMessages.has(messages[0]))
+//console.log(now.getTimezoneOffset());
+//console.log(now.getTime());
 
+let start = new Date();
+for(let i = 0; i < 100000; i++){
+    let some = i**3;
+};
+
+let end = new Date();
+
+alert(`цикл отработал за  ${end-start} миллисекунда`);
