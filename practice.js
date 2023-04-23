@@ -1,23 +1,25 @@
-const now = new Date('2021-06-21');
+const box = document.querySelector('.box'),
+    btn = document.querySelector('button');
+/* const width = box.clientWidth;
+const height = box.clientHeight; */
 
-/* 
-console.log(now.setHours(50));
-console.log(now); */
+/* const width = box.offsetWidth;
+const height = box.clientHeight; */
 
-/* console.log(now.getFullYear());
-console.log(now.getMonth());
-console.log(now.getDay());
-console.log(now.getHours());
-console.log(now.getUTCHours()); */
+const width = box.scrollWidth;
+const height = box.scrollHeight;
 
-//console.log(now.getTimezoneOffset());
-//console.log(now.getTime());
+console.log(width, height);
 
-let start = new Date();
-for(let i = 0; i < 100000; i++){
-    let some = i**3;
-};
+btn.addEventListener('click', () => {
+    //box.style.height = box.scrollHeight + 'px';
+    console.log(box.scrollTop);
+});
 
-let end = new Date();
+console.log(box.getBoundingClientRect().top);
 
-alert(`цикл отработал за  ${end-start} миллисекунда`);
+const style = window.getComputedStyle(box);
+
+console.log(style.display);
+
+console.log(document.documentElement.scrollTop);
