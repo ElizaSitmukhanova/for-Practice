@@ -1,37 +1,33 @@
 'use strict';
 
-const btn = document.querySelector('button');
-// сам элемент
-/* btn.addEventListener('click', function() {
-    console.log(this); 
-}) */
-
-/* btn.addEventListener('click', function() {
-    this.style.backgroundColor = 'red';
-}); */
-
-
-//в стредлочной функции контекста нет, this undefined
-/* btn.addEventListener('click', () => {
-    this.style.backgroundColor = 'red';
-}); */
-
-// поэnому использует e.target
-btn.addEventListener('click', (e) => {
-   e.target.style.backgroundColor = 'red';
-});
-
-const obj = {
-    num: 5,
-    sayNumber: function(){
-        const say = () => {
-            console.log(this);
-        };
-        say();
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
     }
-};
+    calcArea() {
+        return this.height * this.width;
+    }
+}
 
-obj.sayNumber();
+class ColoredRectangleWithText extends Rectangle {
+    constructor(height, width, text, bgColor) {
+        super(height, width);
+        this.text = text;
+        this.bgColor = bgColor;
+    }
+    showMyProps() {
+        console.log(`текст: ${this.text}, цвет такой: ${this.bgColor} `);
+    }
+}
 
-const double = a =>  a * 2;
-console.log(double(5));
+const div = new ColoredRectangleWithText(25, 10, 'Hello', 'red');
+div.showMyProps();
+console.log(div.calcArea());
+
+/* 
+const square = new Rectangle(10, 10);
+const long = new Rectangle(20, 100);
+
+console.log(square.calcArea());
+console.log(long.calcArea()); */
