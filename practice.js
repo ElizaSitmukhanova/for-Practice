@@ -1,33 +1,121 @@
 'use strict';
 
-class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
+const person = {
+    name: 'Eliza',
+    age: 24,
+    parents: {
+        mom: 'Venera',
+        dad: 'Abdel'
     }
-    calcArea() {
-        return this.height * this.width;
-    }
+};
+
+let deepClone = JSON.parse(JSON.stringify(person));
+deepClone.parents.mom = 'Venerocha';
+
+console.log(person);
+console.log(deepClone);
+
+
+
+/*  
+let elem = document.getElementById('elem');
+
+function func(surname, name) {
+	alert(this.value + ', ' + surname + ' ' + name);
 }
 
-class ColoredRectangleWithText extends Rectangle {
-    constructor(height, width, text, bgColor) {
-        super(height, width);
-        this.text = text;
-        this.bgColor = bgColor;
+
+let newFunc = func.bind(elem);
+newFunc('fgf', 'f');
+
+function solution(str){
+    let arr = str.split('');
+      let newStr =arr.reverse().join('');
+      return console.log(newStr);
+  }
+  solution('привет');
+
+  function descendingOrder(num){
+
+   let arrayOfStrings = Array.from(String(num))
+
+         arrayOfStrings.sort(function(a, b){
+            return a-b;
+         });
+  }
+  console.log(descendingOrder(4587123));
+
+
+func(); 
+function getSum(a, b) {
+    function sum() {
+        console.log(this.a);
+        return a + b;
     }
-    showMyProps() {
-        console.log(`текст: ${this.text}, цвет такой: ${this.bgColor} `);
+ 
+    console.log(sum());
+}
+ 
+getSum(4, 5);
+
+
+const urlObj = {
+    protocol: 'https',
+    domain: 'mysite.com'
+}
+ 
+function showCurrentURL() {
+    const extractCurrDomain = () => {
+        return this.domain;
     }
+    const extractCurrProtocol = () => {
+        return this.protocol;
+    }
+ 
+    console.log(`${extractCurrProtocol()}://${extractCurrDomain()}`)
+}
+ 
+const url = showCurrentURL.bind(urlObj);
+ 
+console.log(url());
+
+
+function isPangram(string){
+    let arr = string.split('');
+    let uniqueArr = Array.from(new Set(string));
+    console.log(uniqueArr);
+    console.log(arr);
+    if(arr.length == uniqueArr.length) {
+      return console.log(true);
+    } else{
+      return console.log(false);
+    }
+  }
+isPangram('The quick brown fox jumps over the lazy dog');
+
+
+
+const log = function(a, b, ...rest) {
+    console.log(a, b, rest);
+
+};
+
+log('bacidi', 'vdv', 'dsjdj','dgdg');
+
+function calc( num, basis=4) {
+    console.log(num*basis);
 }
 
-const div = new ColoredRectangleWithText(25, 10, 'Hello', 'red');
-div.showMyProps();
-console.log(div.calcArea());
+calc(2);
 
-/* 
-const square = new Rectangle(10, 10);
-const long = new Rectangle(20, 100);
-
-console.log(square.calcArea());
-console.log(long.calcArea()); */
+ 
+function getSum(a, b) {
+    function sum() {
+        console.log(this.a);
+        return a + b;
+    }
+ 
+    console.log(sum());
+}
+ 
+getSum(4, 5); */
