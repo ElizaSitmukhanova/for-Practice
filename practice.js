@@ -19,7 +19,7 @@ req.then((product) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             product.status = 'order';
-             reject();
+             resolve(product);
         }, 2000);
     });
 
@@ -30,5 +30,7 @@ req.then((product) => {
     console.log(data);
 }).catch(() => {
     console.error('Error occurred');
+}).finally(() => {
+    console.log('Finally');
 });
  
