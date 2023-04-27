@@ -1,32 +1,33 @@
 'use strict';
 
-const inputRub = document.querySelector('#rub'),
-    inputUsd = document.querySelector('#usd');
+console.log('Request of data');
 
-inputRub.addEventListener('input', () => {
-    const request = new XMLHttpRequest();
+const req = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        console.log('Data is being prepared');
 
-    request.open('GET', 'current.json');
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send();
-    
-   /*  request.addEventListener('readystatechange', () => {
-        if (request.readyState === 4 && request.status === 200) {
-            console.log(request.response);
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value/data.current.usd).toFixed(2);
-        } else {
-            inputUsd.value = 'что-то пошло не так';
-        }
-    }); */
-    request.addEventListener('load', () => {
-        if (request.status === 200) {
-            console.log(request.response);
-            const data = JSON.parse(request.response);
-            inputUsd.value = (+inputRub.value/data.current.usd).toFixed(2);
-        } else {
-            inputUsd.value = 'что-то пошло не так';
-        }
+        const product = {
+            name: 'TV',
+            price: 25000
+        };
+
+         resolve(product);
+    }, 2000);
+});
+
+req.then((product) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            product.status = 'order';
+            resolve(product);
+        }, 2000);
     });
 
-})
+}).then(data => {
+    data.modify = true;
+    return data;
+}).then(data => {
+    console.log(data);
+});
+
+ 
