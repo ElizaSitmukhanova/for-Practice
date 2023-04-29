@@ -1,56 +1,50 @@
 'use strict';
+const films = [
+    {
+        name: 'Titanic',
+        rating: 9
+    },
+    {
+        name: 'Die hard 5',
+        rating: 5
+    },
+    {
+        name: 'Matrix',
+        rating: 8
+    },
+    {
+        name: 'Some bad film',
+        rating: 4
+    }
+];
 
-//filter
 
-/* const names = ["Ivan", "Kseniya", "Ann", "Innokentiy"];
-const shortNames = names.filter(function(name) {
-    return name.length < 5;
-});
+/* function showGoodFilms(arr) {
+    let res = arr.filter(item=> item.rating >= 8);
+   return res;
+}
 
-console.log(shortNames); */
+console.log(showGoodFilms(films));
 
-//map
-
-/* const answers = ['IvanA', 'AnnA', "Hello"];
-
-const answersRes = answers.map(item => {
-    return item.toLowerCase();
-});
-
-console.log(answersRes); */
-
-//every/some
-
-/* const some = [4, 'dfg', 'fgdgdsgv'];
-
-console.log(some.some(item => typeof(item) === 'number'));
-
-console.log(some.every(item => typeof(item) === 'number')); */
-
-//reduce
-
-/* const arr = [4, 5, 8, 19];
-
-const result = arr.reduce((sum, current) => {
-    return sum - current, 150;
-});
-console.log(result);
-
-const str = ['apple', 'pear', 'plum'];
-const res = str.reduce((sum, current) => {
-    return `${sum}, ${current}`;
-});
-console.log(res);
+function showListOfFilms(arr) {
+    let res = arr.map(item=> item.name).join(', ');
+   return res; 
+}
+console.log(showListOfFilms(films));
  */
+function setFilmsIds(arr) {
+return arr.map((film, item) =>{
+        film.id = item; 
+    return film;
+ });
+}
+console.log( setFilmsIds(films));
 
-const obj = {
-    ivan: 'persone',
-    ann: 'persone',
-    dog: 'animal',
-    cat: 'animal'
-};
+const tranformedArray = setFilmsIds(films);
 
-const newArr = Object.entries(obj).filter(item => item[1]==='persone').map(item => item[0]);
-console.log(newArr);
+function checkFilms(arr) {
+ return arr.every(film => film.id || film.id === 0 );
+}
 
+console.log(checkFilms(tranformedArray));
  
