@@ -1,36 +1,20 @@
-const checkbox = document.querySelector('#checkbox'),
-  form = document.querySelector('form'),
-  change = document.querySelector('#color');
+/* new RegExp('pattern', 'flags');
+/pattern/f */
 
-if (localStorage.getItem('isChecked')) {
-  checkbox.checked = true;
-}
-if (localStorage.getItem('bg') === 'changed') {
-  form.style.backgroundColor = 'red';
-}
-checkbox.addEventListener('change', () => {
-  localStorage.setItem('isChecked', true);
-});
+/* let answer = prompt("Введите свое имя");
+const req = /n/ig;
 
-change.addEventListener('click', () =>{
-  if (localStorage.getItem('bg') === 'changed') {
-    localStorage.removeItem('bg');
-    form.style.backgroundColor = '#fff';
-  }else {
-    localStorage.setItem('bg', "changed");
-    form.style.backgroundColor = 'red';
-  }
-});
+console.log(answer.search(req));
+console.log(answer.match(req)); */
 
-const person = {
-  name: 'Eliza',
-  age: 24
-};
+/* let pass = prompt('Password');
 
-let personJson = JSON.stringify(person);
-localStorage.setItem('person', personJson);
-console.log(JSON.parse(localStorage.getItem('person', personJson)));
+console.log(pass.replace(/./g, '*')); */
 
+const str = "My name is RT45";
+
+console.log(str.match(/\w\w\d\d/i));
+console.log(str.match(/\W/ig));
 
 
 
