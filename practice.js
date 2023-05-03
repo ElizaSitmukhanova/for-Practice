@@ -1,21 +1,36 @@
-'use strict';
-const funds = [
-    {amount: -1400},
-    {amount: 2400},
-    {amount: -1000},
-    {amount: 500},
-    {amount: 10400},
-    {amount: -11400}
-];
+const checkbox = document.querySelector('#checkbox'),
+  form = document.querySelector('form'),
+  change = document.querySelector('#color');
 
-const getPositiveIncomeAmount = (data) => {
-    let positiv = data.filter(item => item.amount > 0 );
-    let sum = positiv.reduce((s, i) => s + i.amount, 0);
-    return sum;
-};
-console.log(getPositiveIncomeAmount(funds));
+if (localStorage.getItem('isChecked')) {
+  checkbox.checked = true;
+}
+if (localStorage.getItem('bg') === 'changed') {
+  form.style.backgroundColor = 'red';
+}
+checkbox.addEventListener('change', () => {
+  localStorage.setItem('isChecked', true);
+});
 
-const getTotalIncomeAmount = (data) => {
-  return data.some(item => item.amount < 0) ? data.reduce((sum, curr) => sum +curr.amount, 0) : getPositiveIncomeAmount(data);
+change.addEventListener('click', () =>{
+  if (localStorage.getItem('bg') === 'changed') {
+    localStorage.removeItem('bg');
+    form.style.backgroundColor = '#fff';
+  }else {
+    localStorage.setItem('bg', "changed");
+    form.style.backgroundColor = 'red';
+  }
+});
+
+const person = {
+  name: 'Eliza',
+  age: 24
 };
-console.log(getTotalIncomeAmount(funds));
+
+let personJson = JSON.stringify(person);
+localStorage.setItem('person', personJson);
+console.log(JSON.parse(localStorage.getItem('person', personJson)));
+
+
+
+
