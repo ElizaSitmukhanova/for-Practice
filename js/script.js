@@ -1,6 +1,33 @@
-import * as data  from './test.js';
-import sayHi from './test.js';
+'use strict';
 
-console.log(`I have ${data.one} and ${data.two}`);
+const data = [
+    {
+        id: 'box',
+        tag: 'div'
+    },
+    {
+        id: '',
+        tag: 'nav'
+    },
+    {
+        id: 'circle',
+        tag: 'ff'
+    }
+];
 
-sayHi();
+try {
+    data.forEach((blockObj, i) => {
+        const block = document.createElement(blockObj.tag);
+
+        if (!blockObj.id) throw new SyntaxError(`В данных под номером ${i + 1} нет id`);
+        block.setAttribute('id', blockObj.id);
+        document.body.append(block);
+    });
+} catch (e) {
+    if(e.name === 'SyntaxError') {
+          console.log(e.message); 
+    } else throw e;
+}
+
+const err = new Error('Hehehe');
+console.log(err.name, err.message, err.stack);
