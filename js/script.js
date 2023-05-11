@@ -1,33 +1,18 @@
-'use strict';
+import $ from 'jquery';
 
-const data = [
-    {
-        id: 'box',
-        tag: 'div'
-    },
-    {
-        id: '',
-        tag: 'nav'
-    },
-    {
-        id: 'circle',
-        tag: 'ff'
-    }
-];
-
-try {
-    data.forEach((blockObj, i) => {
-        const block = document.createElement(blockObj.tag);
-
-        if (!blockObj.id) throw new SyntaxError(`В данных под номером ${i + 1} нет id`);
-        block.setAttribute('id', blockObj.id);
-        document.body.append(block);
-    });
-} catch (e) {
-    if(e.name === 'SyntaxError') {
-          console.log(e.message); 
-    } else throw e;
-}
-
-const err = new Error('Hehehe');
-console.log(err.name, err.message, err.stack);
+$(document).ready(function(){
+  $('.list-item:first').hover(function(){
+    $(this).toggleClass('active');
+  });
+  $('.list-item:eq(2)').on('click', function(){
+     $('.image:even').fadeToggle();
+  });
+  $('.list-item:eq(4)').on('click', function(){
+    $('.image:odd').animate(
+      {
+        opacity: "toggle",
+        height: "toggle"
+      },
+    2000);
+ });
+  });
