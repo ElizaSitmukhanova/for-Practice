@@ -1,37 +1,35 @@
-function* generator() {
-  yield 'S';
-  yield 'k';
-  yield 'm';
-  yield 'n';
-  yield 'So';
-}
+const btn = document.querySelector('.btn');
+const elem = document.querySelector('.box');
+let timerId,
+i = 0;
+let pos = 0;
 
-const str = generator();
+/* function myAnimation() {
+    const elem = document.querySelector('.box');
+    let pos = 0;
 
-console.log(str.next());
-console.log(str.next().value); 
-/* console.log(str.next());
-console.log(str.next());
-console.log(str.next());
-console.log(str.next());
-console.log(str.next()); */
-
-function* count(n) {
-  for (let i = 0; i<n; i++) {
-    yield i;
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
+        }
+    }
   }
-}
+  btn.addEventListener('click', myAnimation); */
+  
 
-const counter = count(7);
-
-/* console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
-console.log(counter.next().value);
- */
-
-for (let k of count(7)) {
-  console.log(k);
-}
+  function myAnimation() {
+    pos++;
+    elem.style.top = pos + 'px';
+    elem.style.left = pos + 'px';
+    if (pos<300) {
+      requestAnimationFrame(myAnimation);
+    }
+  }
+  btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
+  let id = requestAnimationFrame(myAnimation);
+  cancelAnimationFrame(id);
