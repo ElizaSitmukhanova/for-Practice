@@ -1,35 +1,30 @@
-const btn = document.querySelector('.btn');
-const elem = document.querySelector('.box');
-let timerId,
-i = 0;
-let pos = 0;
+const { _ } = require("core-js");
 
-/* function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
+const btnPhone = document.querySelector('#iphone'),
+      btnMacBook =document.querySelector('#macbook'),
+      images = document.querySelectorAll('img');
 
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos == 300) {
-            clearInterval(id);
+
+      let phoneAnimation;
+      btnPhone.addEventListener('click', () => {
+        if(!phoneAnimation){
+          phoneAnimation = images[0].animate([
+            {transform: 'translateY(0) rotate(0deg',
+          filter: 'opacity(100%)'},
+            {transform: 'translateY(200px) rotate(180deg', 
+            filter: 'opacity(50%)'},
+            {transform: 'translateY(-20px) rotate(270deg',
+            filter: 'opacity(75%)'},
+            {transform: 'translateY(0) rotate(360deg',
+            filter: 'opacity(100%)'},
+          ],{
+            duration: 3000,
+            iterations: Infinity
+          });
+        } else if (phoneAnimation.playState === 'paused') {
+          phoneAnimation.play();
         } else {
-            pos++;
-            elem.style.top = pos + 'px';
-            elem.style.left = pos + 'px';
+          phoneAnimation.pause();
         }
-    }
-  }
-  btn.addEventListener('click', myAnimation); */
-  
-
-  function myAnimation() {
-    pos++;
-    elem.style.top = pos + 'px';
-    elem.style.left = pos + 'px';
-    if (pos<300) {
-      requestAnimationFrame(myAnimation);
-    }
-  }
-  btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
-  let id = requestAnimationFrame(myAnimation);
-  cancelAnimationFrame(id);
+      });
+ 
